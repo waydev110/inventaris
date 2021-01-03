@@ -1,0 +1,17 @@
+/*
+
+* Override Pages default styles or create your own styles here
+
+*/
+
+.widget-1:after {
+    right: auto !important;
+    bottom: auto !important;
+    text-align: center;
+    -webkit-transition: background-image 0.2s ease-in-out;
+    transition: background-image 0.2s ease-in-out;
+}
+
+.owl-theme .owl-nav {
+    margin-top: 0px !important;
+}

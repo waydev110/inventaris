@@ -1,0 +1,26 @@
+{
+    "mapwidth": "959",
+    "mapheight": "593",
+    "categories": [
+
+    ],
+    "levels": [{
+        "id": "states",
+        "title": "States",
+        "map": "admin/assets/img/maps/dashboard-map-dotted.png",
+        "minimap": "",
+        "locations": [{
+            "id": "id",
+            "title": "Indonesia",
+            "description": "<p>Kantor Imigrasi Kelas I Non TPI Jakarta Pusat</p>",
+            "action": "tooltip",
+            "x": "106.8383076",
+            "y": "-6.1543142",
+            "pin": "pulse ",
+            "zoom": "2"
+        }]
+    }],
+    "minimap": "false",
+    "sidebar": "false",
+    "zoomlimit": "4"
+}

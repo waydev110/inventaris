@@ -12,6 +12,9 @@
 */
 
 Auth::routes(['register' => false]);
+Route::get('/', function(){
+    return redirect('login');
+});
 Route::group(['middleware' => 'auth', 'namespace' => 'Administrator',  'prefix' => 'administrator', 'as' => 'administrator.'], function () {
     Route::get('/', 'DashboardController@index')->name('dashboard');
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');

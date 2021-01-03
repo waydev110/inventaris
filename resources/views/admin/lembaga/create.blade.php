@@ -13,8 +13,7 @@
 @section('content')
     <!-- START PAGE CONTENT -->
     <div class="content sm-gutter">
-        <form role="form" method="POST" enctype="multipart/form-data" action="{{url($route.''.$data->id)}}">
-            @method('patch')
+        <form role="form" method="POST" enctype="multipart/form-data" action="{{url($route)}}">
             @csrf
             <!-- START JUMBOTRON -->
             <div class="jumbotron" data-pages="parallax">
@@ -26,8 +25,8 @@
                                     <!-- START BREADCRUMB -->
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="{{url('administrator')}}">DASHBOARD</a></li>
-                                        <li class="breadcrumb-item"><a href="{{url($route)}}">KATEGORI BARANG</a></li>
-                                        <li class="breadcrumb-item active">EDIT</li>
+                                        <li class="breadcrumb-item"><a href="{{url($route)}}">{{$title}}</a></li>
+                                        <li class="breadcrumb-item active">TAMBAH</li>
                                     </ol>
                                     <!-- END BREADCRUMB -->
                                 </div>
@@ -62,11 +61,25 @@
                             <div class="col-sm-12">
                                 <div class="form-group row">
                                     <div class="col-sm-9">
-                                        <label>Nama Kategori</label>
+                                        <label>Nama Lembaga</label>
                                         <span class="help text-danger"></span>
-                                        <input type="text" name="nama_kategori" class="form-control" value="{{old('nama_kategori', $data->nama_kategori)}}">
-                                        @error('nama_kategori')
+                                        <input type="text" name="lembaga" class="form-control" value="{{old('lembaga')}}">
+                                        @error('lembaga')
                                         <p class="hint-text small text-danger"><span class="fa fa-terminal"></span> {{$message}}</p>
+                                        @enderror
+                                        <br>
+                                        <label>Status</label>
+                                        <span class="help"></span>
+                                        <div class="col-sm-12">
+                                            <div class="row">
+                                                <select name="status" class="form-control">
+                                                    <option value="0" {{(old('status') == "0") ? "selected" : ""}}>Tidak Aktif</option>
+                                                    <option value="1" {{(old('status') == "1") ? "selected" : ""}}>Aktif</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        @error('status')
+                                        <p class="hint-text small text-danger"><i class="fa fa-terminal"></i> {{$message}}</p>
                                         @enderror
                                         <br>
                                     </div>

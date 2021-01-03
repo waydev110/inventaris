@@ -25,7 +25,7 @@
                                     <!-- START BREADCRUMB -->
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="{{url('administrator')}}">DASHBOARD</a></li>
-                                        <li class="breadcrumb-item"><a href="{{url($route.'index')}}">KATEGORI BARANG</a></li>
+                                        <li class="breadcrumb-item"><a href="{{url($route)}}">KATEGORI BARANG</a></li>
                                         <li class="breadcrumb-item active">TAMBAH</li>
                                     </ol>
                                     <!-- END BREADCRUMB -->

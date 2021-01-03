@@ -42,7 +42,7 @@
                 <div class="row p-l-15 p-r-15">
                     <div class="col-md-8">
                         <div class="form-group">
-                            <a href="{{url($route.'index')}}" class="btn btn-sm btn-default"><i class="fa fa-chevron-circle-left"></i> Kembali</a>
+                            <a href="{{url($route)}}" class="btn btn-sm btn-default"><i class="fa fa-chevron-circle-left"></i> Kembali</a>
                         </div>
                     </div>
                     <div class="col-md-4">

@@ -24,6 +24,50 @@
 				      </li>
 				</ul>
 			</li>
+			<li class="">
+				<a href="javascript:;">
+				<span class="title">Peminjaman</span><span class=" arrow"></span>
+				</a>
+				<span class="icon-thumbnail"><i class="pg-tables"></i></span>
+				<ul class="sub-menu">
+				      <li class="">
+				        <a href="{{url('administrator/peminjaman')}}">Data Peminjaman</a>
+				        <span class="icon-thumbnail"><i class="pg-calender"></i></span>
+				      </li>
+				      <li class="">
+				        <a href="{{url('administrator/peminjaman/riwayat')}}">Riwayat Peminjaman</a>
+				        <span class="icon-thumbnail"><i class="pg-clock"></i></span>
+				      </li>
+				</ul>
+			</li>
+			<li class="">
+				<a href="javascript:;">
+				<span class="title">Laporan</span><span class=" arrow"></span>
+				</a>
+				<span class="icon-thumbnail"><i class="pg-printer"></i></span>
+				<ul class="sub-menu">
+				      <li class="">
+				        <a href="{{url('administrator/peminjaman')}}">Peminjaman</a>
+				        <span class="icon-thumbnail"><i class="pg-calender"></i></span>
+				      </li>
+				</ul>
+			</li>
+			<li class="">
+				<a href="javascript:;">
+				<span class="title">User</span><span class=" arrow"></span>
+				</a>
+				<span class="icon-thumbnail"><i class="pg-laptop"></i></span>
+				<ul class="sub-menu">
+				      <li class="">
+				        <a href="{{url('administrator/lembaga')}}">Lembaga</a>
+				        <span class="icon-thumbnail"><i class="pg-suitcase"></i></span>
+				      </li>
+				      <li class="">
+				        <a href="{{url('administrator/user')}}">Data User</a>
+				        <span class="icon-thumbnail"><i class="pg-lock"></i></span>
+				      </li>
+				</ul>
+			</li>
 		</ul>
 		<div class="clearfix"></div>
 	</div>

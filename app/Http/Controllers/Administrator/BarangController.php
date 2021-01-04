@@ -80,6 +80,7 @@ class BarangController extends Controller
                 $store->nama_barang      = $request->nama_barang;
                 $store->id_kategori      = $request->kategori;
                 $store->spesifikasi      = $request->spesifikasi;
+                $store->display          = $request->display;
                 if(isset($filename))
                     $store->gambar       = $filename;
                 $store->save();
@@ -115,6 +116,7 @@ class BarangController extends Controller
                 $store->nama_barang      = $request->nama_barang;
                 $store->id_kategori      = $request->kategori;
                 $store->spesifikasi      = $request->spesifikasi;
+                $store->display          = $request->display;
                 if(isset($filename))
                     $store->gambar       = $filename;
             $store->save();

@@ -182,6 +182,7 @@ return [
         Jenssegers\Date\DateServiceProvider::class,
         Harimayco\Menu\MenuServiceProvider::class,
         Spatie\Analytics\AnalyticsServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
     ],
 
     /*

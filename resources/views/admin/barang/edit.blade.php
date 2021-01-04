@@ -110,6 +110,21 @@
                                         </div>
                                         <br>
                                         <input type="file" name="gambar" id="gambar">
+                                        <br>
+                                        <label>Tampilkan di Menu Utama</label>
+                                        <span class="help"></span>
+                                        <div class="col-sm-12">
+                                            <div class="row">
+                                                <select name="display" class="form-control">
+                                                    <option value="0" {{(old('display', $data->display) == "0") ? "selected" : ""}}>Tidak</option>
+                                                    <option value="1" {{(old('display', $data->display) == "1") ? "selected" : ""}}>Ya</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        @error('display')
+                                        <p class="hint-text small text-danger"><i class="fa fa-terminal"></i> {{$message}}</p>
+                                        @enderror
+                                        <br>
                                     </div>
                                 </div>
                             </div>

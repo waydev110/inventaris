@@ -1892,7 +1892,7 @@ body.sidebar-visible .page-sidebar .sidebar-header .sidebar-header-controls {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 65%;
+    width: 80%;
 }
 
 .page-sidebar .sidebar-menu .menu-items>li {
@@ -1955,7 +1955,7 @@ body.sidebar-visible .page-sidebar .sidebar-header .sidebar-header-controls {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    width: 65%;
+    width: 80%;
 }
 
 .page-sidebar .sidebar-menu .menu-items>li>a>.details {

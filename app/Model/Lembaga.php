@@ -11,4 +11,9 @@ class Lembaga extends Model
     protected $fillable = ['id','lembaga'];
     protected $guarded = [];
 
+
+    public function peminjaman()
+    {
+        return $this->hasMany(Peminjaman::class, 'id_lembaga');
+    }
 }

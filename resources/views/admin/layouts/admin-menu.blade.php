@@ -2,6 +2,7 @@
 		<div class="sidebar-menu">
 			<!-- BEGIN SIDEBAR MENU ITEMS-->
 			<ul class="menu-items">
+            @if(auth()->user()->hasRole('admin'))
 			<li class="mt-4">
 				<a href="{{url('administrator')}}">
 				<span class="title">Dashboard</span>
@@ -51,7 +52,7 @@
 				        <span class="icon-thumbnail"><i class="pg-calender"></i></span>
 				      </li>
 				</ul>
-			</li>
+            </li>
 			<li class="">
 				<a href="javascript:;">
 				<span class="title">User</span><span class=" arrow"></span>
@@ -67,7 +68,40 @@
 				        <span class="icon-thumbnail"><i class="pg-lock"></i></span>
 				      </li>
 				</ul>
+            </li>
+            @endif
+            @if(auth()->user()->hasRole('user'))
+			<li class="mt-4">
+				<a href="{{url('administrator')}}">
+				<span class="title">Dashboard</span>
+				</a>
+				<span class="icon-thumbnail"><i class="pg-home"></i></span>
 			</li>
+			<li class="">
+				<a href="javascript:;">
+				<span class="title">Peminjaman</span><span class=" arrow"></span>
+				</a>
+				<span class="icon-thumbnail"><i class="pg-tables"></i></span>
+				<ul class="sub-menu">
+                    <li class="">
+                    <a href="{{url('peminjaman')}}">Inventaris</a>
+                    <span class="icon-thumbnail"><i class="pg-theme"></i></span>
+                    </li>
+                    @foreach (MainHelp::getBarang() as $barang)
+				      <li class="">
+				        <a href="{{url('peminjaman')}}">{{$barang->nama_barang}}</a>
+				        <span class="icon-thumbnail"><i class="pg-theme"></i></span>
+				      </li>
+                    @endforeach
+				</ul>
+			</li>
+			<li class="">
+				<a href="{{url('administrator')}}">
+				<span class="title">Histori Peminjaman</span>
+				</a>
+				<span class="icon-thumbnail"><i class="pg-clock"></i></span>
+            </li>
+            @endif
 		</ul>
 		<div class="clearfix"></div>
 	</div>

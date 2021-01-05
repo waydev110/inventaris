@@ -158,7 +158,7 @@
             "bProcessing": true,
             "bServerSide": true,
             "ajax": {
-                url: "{{url($route.'datatable') }}",
+                url: "{{url('administrator/peminjaman/datatableRiwayat') }}",
                 type: 'POST'
             },
             "pageLength": 10,

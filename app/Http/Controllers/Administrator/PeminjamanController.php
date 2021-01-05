@@ -32,10 +32,25 @@ class PeminjamanController extends Controller
 
     public function datatable(Request $request){
         $query = $this->repo::with('barang','lembaga');
+        $query->where('status', '=', 0);
 
-        if($request->get('status') !== null){
-            $query->where('status', '=', $request->get('status'));
-        }
+        return Datatables::eloquent($query)
+            ->addColumn('tanggal', function ($query) {
+                return $query->created_at->format('d/m/Y');
+            })
+            ->addColumn('tanggal_mulai', function ($query) {
+                return $query->tanggal_mulai->format('d/m/Y H:i');
+            })
+            ->addColumn('tanggal_selesai', function ($query) {
+                return $query->tanggal_selesai->format('d/m/Y H:i');
+            })
+            ->addIndexColumn()
+            ->make(true);
+    }
+
+    public function datatableRiwayat(Request $request){
+        $query = $this->repo::with('barang','lembaga');
+        $query->where('status', '<>', 0);
 
         return Datatables::eloquent($query)
             ->addColumn('tanggal', function ($query) {
@@ -54,6 +69,10 @@ class PeminjamanController extends Controller
     public function index(){
         $barangs = Barang::with('kategori')->get();
         return view($this->view.'index', ['barangs' => $barangs, 'title' => $this->title, 'route' => $this->route]);
+    }
+
+    public function riwayat(){
+        return view($this->view.'riwayat', ['title' => $this->title, 'route' => $this->route]);
     }
 
     public function create()
@@ -135,11 +154,32 @@ class PeminjamanController extends Controller
 
     public function show($id)
     {
-        $data   = $this->repo::with('kategori')->where('id', $id)->first();
+        $data   = $this->repo::with('barang','lembaga')->where('id', $id)->first();
         if(empty($data)){
             return redirect($this->route)->with('status','Terjadi Kesalahan! '.$this->title.' tidak dapat ditampilkan.');
         }
         return view($this->view.'show', ["data" => $data, "title" => $this->title, "route" => $this->route]);
+    }
+
+    public function approval(Request $request, $id)
+    {
+        $rules = collect(['status' => 'required', 'keterangan' => 'required']);
+        $attributes = ['status' => 'Status', 'keterangan' => 'Keterangan'];
+        $validator = Validator::make($request->all(), $rules->all(), $this->messages());
+        $validator->setAttributeNames($attributes);
+        if ($validator->fails()) {
+            return redirect('administrator/peminjaman/'.$id)->withErrors($validator)->withInput();
+        }
+
+        try {
+            $store = $this->repo::find($id);
+                $store->status                  = $request->status;
+                $store->keterangan_verifikasi   = $request->keterangan;
+                $store->save();
+        } catch (\Exception $e) {
+            return redirect($this->route)->with('status', $e->getMessage());
+        }
+        return redirect($this->route)->with('status',$this->title.' berhasil disimpan. Data dipindahkan ke Riwayat Peminjaman.');
     }
 
     public function edit($id)

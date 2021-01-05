@@ -1,4 +1,15 @@
 <?php
+
+Route::group(['middleware' => 'auth', 'namespace' => 'Administrator',  'prefix' => 'administrator/peminjaman', 'as' => 'administrator.peminjaman.'], function () {
+
+    Route::post('datatable', 'PeminjamanController@datatable')->name('datatable');
+    Route::post('datatableRiwayat', 'PeminjamanController@datatableRiwayat')->name('datatable-riwayat');
+    Route::get('/', 'PeminjamanController@index')->name('index');
+    Route::get('/riwayat', 'PeminjamanController@riwayat')->name('riwayat');
+    Route::get('/{url}', 'PeminjamanController@show')->name('show');
+    Route::patch('/{id}', 'PeminjamanController@approval')->name('approval');
+});
+
 Route::group(['middleware' => 'auth', 'namespace' => 'Administrator',  'prefix' => 'peminjaman', 'as' => 'peminjaman.'], function () {
 
     Route::post('datatable', 'PeminjamanController@datatable')->name('datatable');

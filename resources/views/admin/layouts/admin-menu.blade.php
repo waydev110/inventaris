@@ -32,7 +32,7 @@
 				<span class="icon-thumbnail"><i class="pg-tables"></i></span>
 				<ul class="sub-menu">
 				      <li class="">
-				        <a href="{{url('administrator/peminjaman')}}">Data Peminjaman</a>
+				        <a href="{{url('administrator/peminjaman')}}">Ajuan Peminjaman</a>
 				        <span class="icon-thumbnail"><i class="pg-calender"></i></span>
 				      </li>
 				      <li class="">

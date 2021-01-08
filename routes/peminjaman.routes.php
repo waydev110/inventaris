@@ -22,3 +22,9 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Administrator',  'prefix' 
     Route::patch('/{id}', 'PeminjamanController@update')->name('update');
     Route::post('/jadwal', 'PeminjamanController@jadwal')->name('jadwal');
 });
+
+Route::group(['middleware' => 'auth', 'namespace' => 'Administrator',  'prefix' => 'laporan', 'as' => 'laporan.'], function () {
+
+    Route::get('/', 'PeminjamanController@formLaporan');
+    Route::get('/{tahun}/{bulan}', 'PeminjamanController@laporan');
+});

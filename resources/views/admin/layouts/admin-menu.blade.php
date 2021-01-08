@@ -48,7 +48,7 @@
 				<span class="icon-thumbnail"><i class="pg-printer"></i></span>
 				<ul class="sub-menu">
 				      <li class="">
-				        <a href="{{url('administrator/peminjaman')}}">Peminjaman</a>
+				        <a href="{{url('laporan')}}">Peminjaman</a>
 				        <span class="icon-thumbnail"><i class="pg-calender"></i></span>
 				      </li>
 				</ul>

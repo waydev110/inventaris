@@ -14,11 +14,11 @@ class AlterTableUserAddFieldInstansi extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('nik');
-            $table->unsignedBigInteger('id_lembaga');
-            $table->string('jabatan');
-            $table->string('alamat_rumah');
-            $table->string('no_hp');
+            $table->string('nik')->nullable();
+            $table->unsignedBigInteger('id_lembaga')->nullable();
+            $table->string('jabatan')->nullable();
+            $table->string('alamat_rumah')->nullable();
+            $table->string('no_hp')->nullable();
         });
     }
 

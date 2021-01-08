@@ -33,6 +33,8 @@ class PeminjamanController extends Controller
     public function datatable(Request $request){
         $query = $this->repo::with('barang','lembaga');
         $query->where('status', '=', 0);
+        if(auth()->user()->hasRole('user'))
+            $query->where('id_lembaga', auth()->user()->id_lembaga);
 
         return Datatables::eloquent($query)
             ->addColumn('tanggal', function ($query) {
@@ -51,6 +53,8 @@ class PeminjamanController extends Controller
     public function datatableRiwayat(Request $request){
         $query = $this->repo::with('barang','lembaga');
         $query->where('status', '<>', 0);
+        if(auth()->user()->hasRole('user'))
+            $query->where('id_lembaga', auth()->user()->id_lembaga);
 
         return Datatables::eloquent($query)
             ->addColumn('tanggal', function ($query) {
@@ -80,6 +84,41 @@ class PeminjamanController extends Controller
         $barangs = Barang::with('kategori')->get();
         $lembaga = Lembaga::where('id', auth()->user()->id_lembaga)->first();
         return view($this->view.'create',['lembaga' => $lembaga->lembaga, 'barangs' => $barangs, 'route' => $this->route, 'title' => $this->title]);
+    }
+
+    public function formLaporan(Request $request){
+        $months = [
+            '01' => 'Januari',
+            '02' => 'Februari',
+            '03' => 'Maret',
+            '04' => 'April',
+            '05' => 'Mei',
+            '06' => 'Juni',
+            '07' => 'Juli',
+            '08' => 'Agustus',
+            '09' => 'September',
+            '10' => 'Oktober',
+            '11' => 'November',
+            '12' => 'Desember',
+        ];
+        if(Input::has('tahun')&&Input::has('bulan')&&Input::has('lembaga')&&Input::has('barang')){
+            $tahun = $request->get('tahun');
+            $bulan = $request->get('bulan');
+            $lembaga = $request->get('lembaga');
+            $barang = $request->get('barang');
+            $query = Peminjaman::where('created_at', 'LIKE', $tahun.'-'.$bulan.'%');
+            if($lembaga !== null)
+                $query->where('id_lembaga', $lembaga);
+            if($barang !== null)
+                $query->where('id_barang', $barang);
+            $peminjaman = $query->get();
+            return view($this->view.'print-laporan', ['peminjaman' => $peminjaman, 'tahun' => $tahun, 'bulan' => $months[$bulan], 'title' => $this->title, 'route' => $this->route]);
+        }else{
+            $barangs = Barang::with('kategori')->get();
+            $lembaga = Lembaga::get();
+            return view($this->view.'laporan', ['months' => $months, 'barangs' => $barangs, 'institutions' => $lembaga, 'title' => $this->title, 'route' => $this->route]);
+
+        }
     }
 
     public function store(Request $request)

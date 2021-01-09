@@ -38,18 +38,23 @@
 		if (navigator.appVersion.indexOf("Windows NT 6.2") != -1)
 			document.head.innerHTML += '<link rel="stylesheet" type="text/css" href="{{url('admin')}}/pages/css/windows.chrome.fix.css" />'
 		}
-		</script>
+        </script>
+        <style>
+            .login-wrapper .bg-pic>img {
+                /* height: 100%; */
+                opacity: 1;
+            }
+        </style>
 	</head>
 	<body class="fixed-header ">
 		<div class="login-wrapper ">
 		<!-- START Login Background Pic Wrapper-->
 		<div class="bg-pic">
 			<!-- START Background Pic-->
-			{{-- <img src="{{url('admin')}}/assets/img/login-page.jpg" data-src="{{url('admin')}}/assets/img/login-page.jpg" data-src-retina="{{url('admin')}}/assets/img/login-page.jpg" alt="" class="lazy"> --}}
+			<img src="{{url('admin')}}/assets/img/bg.jpg" data-src="{{url('admin')}}/assets/img/bg.jpg" data-src-retina="{{url('admin')}}/assets/img/bg.jpg" alt="" class="lazy">
 			<!-- END Background Pic-->
 			<!-- START Background Caption-->
 			<div class="bg-caption pull-bottom sm-pull-bottom text-white p-l-20 m-b-20">
-			<h2 class="semi-bold text-white">{{env('APP_TITLE')}}</h2>
 			<p class="small">Copyright © 2021
 			</p>
 			</div>
@@ -57,9 +62,10 @@
 		</div>
 		<!-- END Login Background Pic Wrapper-->
 		<!-- START Login Right Container-->
-		<div class="login-container bg-white">
+		<div class="login-container" style="background-color: rgb(240, 240, 240)">
 			<div class="p-l-50 m-l-20 p-r-50 m-r-20 p-t-50 m-t-30 sm-p-l-15 sm-p-r-15 sm-p-t-40">
-			{{-- <img src="{{url('admin')}}/assets/img/logo.png" alt="logo" data-src="{{url('admin')}}/assets/img/logo.png" data-src-retina="{{url('admin')}}/assets/img/logo.png" width="235" height="60"> --}}
+                <h4>{{env('APP_TITLE')}}</h4>
+			<img src="{{url('admin')}}/assets/img/logo.png" alt="logo" data-src="{{url('admin')}}/assets/img/logo.png" data-src-retina="{{url('admin')}}/assets/img/logo.png" width="100%">
 
             <p class="p-t-35">Sign into your account</p>
             @error('email')
@@ -88,28 +94,9 @@
 					<input type="password" class="form-control" name="password" placeholder="Password" autocomplete="off" required>
 				</div>
 				</div>
-				<!-- START Form Control-->
-				<div class="row">
-				<div class="col-md-6 no-padding sm-p-l-10">
-					<div class="checkbox ">
-					<input type="checkbox" value="1" id="checkbox1">
-					<label for="checkbox1">Keep Me Signed in</label>
-					</div>
-				</div>
-				</div>
 				<!-- END Form Control-->
 				<button class="btn btn-complete btn-cons m-t-10" type="submit">Sign in</button>
 			</form>
-			<!--END Login Form-->
-			<div class="pull-bottom sm-pull-bottom">
-				<div class="m-b-30 p-r-80 sm-m-t-20 sm-p-r-15 sm-p-b-20 clearfix">
-				<div class="col-sm-9 no-padding m-t-10">
-					<p>
-					<small>Please contact administrator for your account. If you have a account, log into it for this process.</small>
-					</p>
-				</div>
-				</div>
-			</div>
 			</div>
 		</div>
 		<!-- END Login Right Container-->

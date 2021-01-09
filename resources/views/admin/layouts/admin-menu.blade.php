@@ -96,7 +96,7 @@
 				</ul>
 			</li>
 			<li class="">
-				<a href="{{url('administrator')}}">
+				<a href="{{url('peminjaman/riwayat')}}">
 				<span class="title">Histori Peminjaman</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-clock"></i></span>

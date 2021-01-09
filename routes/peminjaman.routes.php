@@ -13,6 +13,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Administrator',  'prefix' 
 Route::group(['middleware' => 'auth', 'namespace' => 'Administrator',  'prefix' => 'peminjaman', 'as' => 'peminjaman.'], function () {
 
     Route::post('datatable', 'PeminjamanController@datatable')->name('datatable');
+    Route::get('/riwayat', 'PeminjamanController@riwayat')->name('riwayat');
     Route::get('/', 'PeminjamanController@index')->name('index');
     Route::get('create', 'PeminjamanController@create')->name('create');
     Route::get('/{url}', 'PeminjamanController@show')->name('show');

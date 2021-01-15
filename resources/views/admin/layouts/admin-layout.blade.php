@@ -40,7 +40,7 @@
 		<nav class="page-sidebar" data-pages="sidebar">
 			<!-- BEGIN SIDEBAR MENU HEADER-->
 			<div class="sidebar-header">
-				<img src="{{url('admin')}}/assets/img/logo_white.png" alt="logo" class="brand" data-src="{{url('admin')}}/assets/img/logo_white.png" data-src-retina="{{url('admin')}}/assets/img/logo_white_2x.png" width="78" height="22">
+				<img src="{{url('admin')}}/assets/img/logo.png" alt="logo" class="brand" data-src="{{url('admin')}}/assets/img/logo.png" data-src-retina="{{url('admin')}}/assets/img/logo.png" width="78" height="22">
 				<div class="sidebar-header-controls">
 					<button type="button" class="btn btn-link d-lg-inline-block d-xlg-inline-block d-md-inline-block d-sm-none d-none" data-toggle-pin="sidebar"><i class="fa fs-12"></i>
 					</button>

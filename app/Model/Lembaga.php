@@ -16,4 +16,9 @@ class Lembaga extends Model
     {
         return $this->hasMany(Peminjaman::class, 'id_lembaga');
     }
+
+    public function user()
+    {
+        return $this->hasMany(User::class, 'id_lembaga');
+    }
 }
